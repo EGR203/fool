@@ -31,7 +31,7 @@ class Group extends Model {
 	 * @return Lesson|null
 	 */
 	public function getNearestLessonByDate( Carbon $date = null, bool $strict = false) {
-		$date    = $date ? clone $date : Carbon::now();
+		$date    = $date ?? Carbon::now();
 		$time    = $date->toTimeString();
 
 		$lessons_in_date = self::lessonsByDate( $date, true );

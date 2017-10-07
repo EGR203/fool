@@ -59,8 +59,20 @@ trait UtilsCommand {
 		return $msg;
 	}
 
+	/**
+	 * Ищет ближайшую лекцию.
+	 *
+	 * @param $groups колеция или массив групп
+	 * @param Carbon|null $date дата для поиска, по умолчанию используется текущая дата
+	 * @param bool $strict При строгом режиме, будет искать только среди сегоднешних лекций,
+	 * иначе переключится на другой день и так до первой найденной лекции
+	 *
+	 * @return string
+	 */
 	protected function prepareNearestLessonForGroupsByDate($groups, Carbon $date = null, bool $strict = True) {
 		$date = $date ? clone $date : Carbon::now();
+		// При строгом и нестрогом режиме отличаются даты
+		$old_date = clone $date;
 		$lessons_info = [];
 		$is_empty = True;
 		foreach ($groups as $undergroup) {
@@ -71,7 +83,7 @@ trait UtilsCommand {
 			}
 		}
 		if ($is_empty) {
-			return $date->format('l') . " - нет пар";
+			return $old_date->format('l') . " - нет пар";
 		}
 
 		if (count($lessons_info) > 1) {
