@@ -7,14 +7,20 @@ use App\Console\Commands;
 class CommandFactory {
 	protected static $commands_available = [
 		'default' => Commands\NearestLessonCommand::class,
+
 		'ближайшая' => Commands\NearestLessonCommand::class,
 		'сейчас' => Commands\NowLessonCommand::class,
+		'следующая' => Commands\NextLessonCommand::class,
+
 		'неделя' => Commands\ParityCommand::class,
 		'четность' => Commands\ParityCommand::class,
+
 		'староста' => Commands\StarostaCommand::class,
+
 		'сегодня' => Commands\TodayLessonsCommand::class,
 		'завтра' => Commands\TomorrowLessonsCommand::class,
 		'послезавтра' => Commands\DayAfterTomorrowLessonsCommand::class,
+
 		'понедельник' => Commands\MondeyLessonsCommand::class,
 		'вторник' => Commands\TuesdayLessonsCommand::class,
 		'среда' => Commands\WednesdayLessonsCommand::class,
