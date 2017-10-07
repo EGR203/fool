@@ -8,6 +8,7 @@ class CommandFactory {
 	protected static $commands_available = [
 		'default' => Commands\NearestLessonCommand::class,
 		'ближайшая' => Commands\NearestLessonCommand::class,
+		'сейчас' => Commands\NowLessonCommand::class,
 		'неделя' => Commands\ParityCommand::class,
 		'четность' => Commands\ParityCommand::class,
 		'староста' => Commands\StarostaCommand::class,

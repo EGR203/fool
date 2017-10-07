@@ -81,7 +81,7 @@ trait UtilsCommand {
 				}
 			}
 		}
-		$msg = '';
+		$msg = $date->format('l') . ':\n';
 		foreach ($lessons_info as $i => $li) {
 			$group_num = $i+1;
 			$msg .= "Для $group_num группы: " . $li . '\n';
