@@ -7,14 +7,17 @@ use App\Lesson;
 use App\Group;
 use Carbon\Carbon;
 
-class NearestLessonCommand extends Command {
+class MondeyLessonsCommand extends Command {
 
 	use UtilsCommand;
 
 	public function execute(): string {
 		$groups = Group::getDefaultGroups();
 		$date = Carbon::now();
-		$msg = $this->prepareNearestLessonForGroupsByDate($groups, $date, False);
+		while (!$date->isMonday()){
+			$date->addDay();
+		}
+		$msg = $this->prepareAllLessonsForGroupsByDate($groups, $date, False);
 		return $msg;
 
 	}

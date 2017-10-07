@@ -8,9 +8,18 @@ class CommandFactory {
 	protected static $commands_available = [
 		'default' => Commands\NearestLessonCommand::class,
 		'ближайшая' => Commands\NearestLessonCommand::class,
+		'неделя' => Commands\ParityCommand::class,
+		'четность' => Commands\ParityCommand::class,
 		'староста' => Commands\StarostaCommand::class,
-		'сегодня' => Commands\TodayLessonCommand::class,
-		'завтра' => Commands\TomorrowLessonCommand::class,
+		'сегодня' => Commands\TodayLessonsCommand::class,
+		'завтра' => Commands\TomorrowLessonsCommand::class,
+		'послезавтра' => Commands\DayAfterTomorrowLessonsCommand::class,
+		'понедельник' => Commands\MondeyLessonsCommand::class,
+		'вторник' => Commands\TuesdayLessonsCommand::class,
+		'среда' => Commands\WednesdayLessonsCommand::class,
+		'четверг' => Commands\ThursdayLessonsCommand::class,
+		'пятница' => Commands\FridayLessonsCommand::class,
+		'суббота' => Commands\SaturdayLessonsCommand::class,
 
 	];
 	protected static function commandsToLower() {

@@ -89,10 +89,12 @@ class Group extends Model {
 	public function lessonsByDate( Carbon $date = null, $check_parity = true ) {
 		$date    = $date ?? Carbon::now();
 		$is_odd = ($date->weekOfYear) % 2;
+		# Карбон начинает отчет дня недели с воскресенья
+		$weekday = ($date->dayOfWeek - 1 ) % 7 ;
 		if (!$check_parity){
-			$lessons = self::lessons()->where( 'day', $date->dayOfWeek )->get();
+			$lessons = self::lessons()->where( 'day', $weekday )->get();
 		} else {
-			$lessons = self::lessons()->where( 'day', $date->dayOfWeek )->where('is_odd', $is_odd)->get();
+			$lessons = self::lessons()->where( 'day', $weekday )->where('is_odd', $is_odd)->get();
 		}
 
 		return $lessons;

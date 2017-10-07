@@ -7,14 +7,15 @@ use App\Lesson;
 use App\Group;
 use Carbon\Carbon;
 
-class NearestLessonCommand extends Command {
-
+class TomorrowLessonsCommand extends Command {
 	use UtilsCommand;
 
 	public function execute(): string {
 		$groups = Group::getDefaultGroups();
 		$date = Carbon::now();
-		$msg = $this->prepareNearestLessonForGroupsByDate($groups, $date, False);
+		$date->addDay();
+		$date->hour = 0;
+		$msg = $this->prepareAllLessonsForGroupsByDate($groups, $date, True);
 		return $msg;
 
 	}
