@@ -51,6 +51,7 @@ trait UtilsCommand {
 		}
 		$msg = $date->format('l') . ":\\n";
 		foreach ($groups_lessons as $group_num => $lessons_info) {
+			$msg .= "==========================\\n";
 			$msg .= " Для ".($group_num + 1)." группы:\\n";
 			$msg .= implode('\n-----------\n', $lessons_info);
 			$msg .= "\\n\\n";
