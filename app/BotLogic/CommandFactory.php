@@ -28,6 +28,9 @@ class CommandFactory {
 		'пятница' => Commands\FridayLessonsCommand::class,
 		'суббота' => Commands\SaturdayLessonsCommand::class,
 
+		'?' => Commands\InfoCommand::class,
+		'помощь' => Commands\InfoCommand::class,
+
 	];
 	protected static function commandsToLower() {
 		$ca = self::$commands_available;
@@ -78,5 +81,9 @@ class CommandFactory {
 			return 'default';
 		}
 		return $best_token;
+	}
+
+	public static function getAvailableCommands(){
+		return self::$commands_available;
 	}
 }

@@ -22,4 +22,8 @@ class DayAfterTomorrowLessonsCommand extends Command {
 		return $msg;
 
 	}
+
+	public  static function getInfo(): string {
+		return "Все лекции на послезавтра - с учетом четности недели";
+	}
 }

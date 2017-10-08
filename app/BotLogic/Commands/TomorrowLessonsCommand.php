@@ -17,6 +17,9 @@ class TomorrowLessonsCommand extends Command {
 		$date->hour = 0;
 		$msg = $this->prepareAllLessonsForGroupsByDate($groups, $date, True);
 		return $msg;
+	}
 
+	public  static function getInfo(): string {
+		return "Расписание на завтра с учетом расписания";
 	}
 }

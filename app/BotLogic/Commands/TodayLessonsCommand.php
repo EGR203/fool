@@ -16,6 +16,9 @@ class TodayLessonsCommand extends Command {
 		$date = Carbon::now();
 		$msg = $this->prepareAllLessonsForGroupsByDate($groups, $date, true);
 		return $msg;
+	}
 
+	public  static function getInfo(): string {
+		return "Расписание на сегодня с учетом четности недели";
 	}
 }

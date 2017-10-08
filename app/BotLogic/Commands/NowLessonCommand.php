@@ -16,6 +16,9 @@ class NowLessonCommand extends Command {
 		$date = Carbon::now();
 		$msg = $this->prepareNearestLessonForGroupsByDate($groups, $date, True);
 		return $msg;
+	}
 
+	public  static function getInfo(): string {
+		return 'Ближайшая лекция на СЕГОДНЯ';
 	}
 }

@@ -19,6 +19,9 @@ class WednesdayLessonsCommand extends Command {
 		}
 		$msg = $this->prepareAllLessonsForGroupsByDate($groups, $date, False);
 		return $msg;
+	}
 
+	public  static function getInfo(): string {
+		return "Расписание на среду";
 	}
 }

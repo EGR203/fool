@@ -12,4 +12,8 @@ class ParityCommand extends Command {
 		$msg .= " ({$week_of_year})";
 		return $msg;
 	}
+
+	public  static function getInfo(): string {
+		return "Показывает четность текущей недели";
+	}
 }

@@ -16,6 +16,9 @@ class NearestLessonCommand extends Command {
 		$date = Carbon::now();
 		$msg = $this->prepareNearestLessonForGroupsByDate($groups, $date, False);
 		return $msg;
+	}
 
+	public  static function getInfo(): string {
+		return "Ближайшая лекция с учетом четности недели";
 	}
 }

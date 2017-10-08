@@ -9,4 +9,6 @@ abstract class Command {
 		$this->object = $object;
 	}
 	abstract public function execute(): string;
+
+	public abstract static function getInfo(): string;
 }

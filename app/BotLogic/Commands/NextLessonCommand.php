@@ -18,6 +18,9 @@ class NextLessonCommand extends Command {
 		$date->addMinutes(30);
 		$msg = $this->prepareNearestLessonForGroupsByDate($groups, $date, True);
 		return $msg;
+	}
 
+	public  static function getInfo(): string {
+		return "Следующая лекция на сегодня";
 	}
 }
