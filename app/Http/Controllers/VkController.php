@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Console\Commands\HandleVkMessage;
+use App\Jobs\HandleVkMessage;
 
 class VkController extends Controller
 {
@@ -25,7 +25,7 @@ class VkController extends Controller
 			case 'confirmation':
 				return $this->getConfirmToken();
 			case 'message_new':
-				dispatch( new HandleVkMessage($request));
+				$this->dispatch( new HandleVkMessage($request->input()));
 				return 'ok';
 			default:
 				return 'ok';
