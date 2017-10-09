@@ -14,7 +14,7 @@ class TuesdayLessonsCommand extends Command {
 	public function execute(): string {
 		$groups = Group::getDefaultGroups();
 		$date = Carbon::now();
-		while (!$date->isThursday()){
+		while (!$date->isTuesday()){
 			$date->addDay();
 		}
 		$msg = $this->prepareAllLessonsForGroupsByDate($groups, $date, False);
