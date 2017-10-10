@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Utils\DateTimeUtils;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
@@ -88,7 +89,7 @@ class Group extends Model {
 
 	public function lessonsByDate( Carbon $date = null, $check_parity = true ) {
 		$date    = $date ?? Carbon::now();
-		$is_odd = ($date->weekOfYear) % 2;
+		$is_odd = DateTimeUtils::isOddWeekOfStudy($date);
 		# Карбон начинает отчет дня недели с воскресенья
 		$weekday = ($date->dayOfWeek - 1 ) % 7 ;
 		if (!$check_parity){
