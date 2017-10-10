@@ -15,8 +15,6 @@ class CommandFactory {
 		'неделя' => Commands\ParityCommand::class,
 		'четность' => Commands\ParityCommand::class,
 
-		'староста' => Commands\StarostaCommand::class,
-
 		'сегодня' => Commands\TodayLessonsCommand::class,
 		'завтра' => Commands\TomorrowLessonsCommand::class,
 		'послезавтра' => Commands\DayAfterTomorrowLessonsCommand::class,
@@ -30,6 +28,8 @@ class CommandFactory {
 
 		'?' => Commands\InfoCommand::class,
 		'помощь' => Commands\InfoCommand::class,
+
+		'староста' => Commands\StarostaCommand::class,
 
 	];
 	protected static function commandsToLower() {
