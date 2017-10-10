@@ -65,21 +65,23 @@ class CommandFactory {
 			}
 		}
 		$tokens = array_keys($ca);
-		$best_sim = 0;
+		$best_sim = 15;
 		$best_token = 'default';
 		foreach ($words as $word) {
 			foreach ($tokens as $token) {
-				similar_text( $word, $token, $percent );
-				if ($percent > $best_sim){
-					$best_sim = $percent;
+				$lev = levenshtein($token, $word, 3, 3, 0);
+				#similar_text( $word, $token, $percent );
+				#if ($percent > $best_sim){
+				if ($lev < $best_sim){
+					$best_sim = $lev;
 					$best_token = $token;
 				}
 			}
 		}
 
-		if ($best_sim < 60) {
-			return 'default';
-		}
+#		if ($best_sim < 60) {
+#			return 'default';
+#		}
 		return $best_token;
 	}
 
