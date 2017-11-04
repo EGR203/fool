@@ -6,6 +6,22 @@ use App\Utils\DateTimeUtils;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Group
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Lesson[] $lessons
+ * @mixin \Eloquent
+ * @property int $id
+ * @property string $group
+ * @property string $undergroup
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereGroup($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereUndergroup($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Group whereUpdatedAt($value)
+ */
 class Group extends Model {
 	protected $fillable = [
 		'group',

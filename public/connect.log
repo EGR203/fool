@@ -1,0 +1,196 @@
+Took from 127.0.0.1 : response: ERR
+$_POST: Array
+(
+)
+
+Took from 127.0.0.1 : response: ERR
+$_POST: Array
+(
+)
+
+Took from 127.0.0.1 : response: ERR
+$_POST: Array
+(
+)
+
+Took from 127.0.0.1 : response: <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style type="text/css">
+		
+		label{
+			display: inline-block;
+			width: 400px;
+		}
+
+	</style>
+	<form action="index.php" method="POST">
+		<div>
+			<label for="URL">URL</label>
+			<input type="text" name="URL" value="http://localhost/callback/index.php">
+		<div>
+		<div>
+			<label for="ID">ID</label>
+			<input type="text" name="ID" value="3TDQj">
+		</div>
+		<div>
+			<label for="FUNCTION">FUNCTION</label>
+			<input type="text" name="FUNCTION" value="payment">
+		</div>
+		<div>
+			<label for="STATUS">STATUS (0 = дублировать FUNCTION)</label>
+			<input type="text" name="STATUS" value="0">
+		</div>
+		<div>
+			<label for="RRN">RRN</label>
+			<input type="text" name="RRN" value="X1UwW">
+		</div>
+		<div>
+			<label for="PAYER">PAYER</label>
+			<input type="text" name="PAYER" value="Mqlao">
+		</div>
+		<div>
+			<label for="AMOUNT">AMOUNT</label>
+			<input type="text" name="AMOUNT" value="">
+		</div>
+		<div>
+			<label for="ACCOUNT">ACCOUNT</label>
+			<input type="text" name="ACCOUNT" value="">
+		</div>
+
+		<div>
+			<label for="DATETIME">DATETIME</label>
+			<input type="text" name="DATETIME" value="2017-11-04T20:05:50+10:00">
+		</div>
+		<div>
+			<label for="MERCH_TYPE">MERCH_TYPE</label>
+			<input type="text" name="MERCH_TYPE" value="0">
+		</div>
+		<div>
+			<label for="AMOUNT_FULL">AMOUNT_FULL</label>
+			<input type="text" name="AMOUNT_FULL" value="0">
+		</div>
+
+		<div>
+			<label for="KEY">KEY</label>
+			<input type="text" name="KEY" value="">
+		</div>
+		<div>
+			<label for="SIGN">SIGN(0 = сформировать)</label>
+			<input type="text" name="SIGN" value="0">
+		</div>
+
+	
+		
+		<input type="submit">	
+	</form>
+</body>
+</html>
+
+
+$_POST: Array
+(
+)
+
+Took from 127.0.0.1 : response: <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style type="text/css">
+		
+		label{
+			display: inline-block;
+			width: 400px;
+		}
+
+	</style>
+	<form action="index.php" method="POST">
+		<div>
+			<label for="URL">URL</label>
+			<input type="text" name="URL" value="http://localhost/callback/index.php">
+		<div>
+		<div>
+			<label for="ID">ID</label>
+			<input type="text" name="ID" value="VEqHw">
+		</div>
+		<div>
+			<label for="FUNCTION">FUNCTION</label>
+			<input type="text" name="FUNCTION" value="payment">
+		</div>
+		<div>
+			<label for="STATUS">STATUS (0 = дублировать FUNCTION)</label>
+			<input type="text" name="STATUS" value="0">
+		</div>
+		<div>
+			<label for="RRN">RRN</label>
+			<input type="text" name="RRN" value="tq9fq">
+		</div>
+		<div>
+			<label for="PAYER">PAYER</label>
+			<input type="text" name="PAYER" value="l6V1x">
+		</div>
+		<div>
+			<label for="AMOUNT">AMOUNT</label>
+			<input type="text" name="AMOUNT" value="">
+		</div>
+		<div>
+			<label for="ACCOUNT">ACCOUNT</label>
+			<input type="text" name="ACCOUNT" value="">
+		</div>
+
+		<div>
+			<label for="DATETIME">DATETIME</label>
+			<input type="text" name="DATETIME" value="2017-11-04T20:06:10+10:00">
+		</div>
+		<div>
+			<label for="MERCH_TYPE">MERCH_TYPE</label>
+			<input type="text" name="MERCH_TYPE" value="0">
+		</div>
+		<div>
+			<label for="AMOUNT_FULL">AMOUNT_FULL</label>
+			<input type="text" name="AMOUNT_FULL" value="0">
+		</div>
+
+		<div>
+			<label for="KEY">KEY</label>
+			<input type="text" name="KEY" value="">
+		</div>
+		<div>
+			<label for="SIGN">SIGN(0 = сформировать)</label>
+			<input type="text" name="SIGN" value="0">
+		</div>
+
+	
+		
+		<input type="submit">	
+	</form>
+</body>
+</html>
+
+
+$_POST: Array
+(
+)
+
+Took from 127.0.0.1 : response: ERR
+$_POST: Array
+(
+)
+
+Took from 127.0.0.1 : response: ERR
+$_POST: Array
+(
+)
+
+Took from 127.0.0.1 : response: 
+$_POST: Array
+(
+)
+

@@ -4,6 +4,35 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\Lesson
+ *
+ * @property-read \App\Group $group
+ * @property-read \App\LessonTime $lessonTime
+ * @mixin \Eloquent
+ * @property int $id
+ * @property int $day
+ * @property int $lesson_number_id
+ * @property int $group_id
+ * @property string|null $classroom
+ * @property string|null $type
+ * @property string|null $teacher
+ * @property string|null $name
+ * @property int $is_odd
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereClassroom($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereDay($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereGroupId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereIsOdd($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereLessonNumberId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereTeacher($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Lesson whereUpdatedAt($value)
+ */
 class Lesson extends Model {
 	protected $fillable = [
 		'day',

@@ -5,6 +5,22 @@ namespace App;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
+/**
+ * App\LessonTime
+ *
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Lesson[] $lessons
+ * @mixin \Eloquent
+ * @property int $id
+ * @property string $start_lesson
+ * @property string $stop_lesson
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\LessonTime whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\LessonTime whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\LessonTime whereStartLesson($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\LessonTime whereStopLesson($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\LessonTime whereUpdatedAt($value)
+ */
 class LessonTime extends Model
 {
 	protected $fillable = [
