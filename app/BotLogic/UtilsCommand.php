@@ -23,21 +23,21 @@ trait UtilsCommand {
 				// в $strict режиме нам приходит 1 лекция
 				if ($strict) {
 					foreach ($ls as $l) {
-						$lessons[$l->lesson_number_id] = $l->toStr();
+						$lessons[$l->lesson_number_id] = $l->toShortStr();
 					}
 				} else {
 					$grouped = $ls->groupBy('lesson_number_id');
 					foreach ($grouped as $l_num => $g_ls) {
 						if(count($g_ls) == 1) {
-							$lessons[$l_num] = $g_ls[0]->toStr() . $parity_dict[$g_ls[0]->is_odd];
+							$lessons[$l_num] = $g_ls[0]->toShortStr() . $parity_dict[$g_ls[0]->is_odd];
 						} else {
 							$zero = $g_ls[0];
 							$first = $g_ls[1];
-							if ($zero->toStr() == $first->toStr()) {
-								$lessons[$l_num] = $zero->toStr();
+							if ($zero->toShortStr() == $first->toShortStr()) {
+								$lessons[$l_num] = $zero->toShortStr();
 							} else {
-								$lessons[$l_num] = $first->toStr() . $parity_dict[$first->is_odd] . " \\n";
-								$lessons[$l_num] .= $zero->toStr() . $parity_dict[$zero->is_odd];
+								$lessons[$l_num] = $first->toShortStr() . $parity_dict[$first->is_odd] . " \\n";
+								$lessons[$l_num] .= $zero->toShortStr() . $parity_dict[$zero->is_odd];
 							}
 						}
 					}

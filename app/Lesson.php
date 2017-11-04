@@ -59,4 +59,8 @@ class Lesson extends Model {
 
 		return $str;
 	}
+	 public function toShortStr() {
+		 $str = "{$this->lessonTime()->first()->toStr()} {$this->classroom} {$this->teacher} ";
+		 return $str;
+	 }
 }
