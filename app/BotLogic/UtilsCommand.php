@@ -36,8 +36,8 @@ trait UtilsCommand {
 							if ($zero->toShortStr() == $first->toShortStr()) {
 								$lessons[$l_num] = $zero->toShortStr();
 							} else {
-								$lessons[$l_num] .= $zero->toShortStr() . $parity_dict[$zero->is_odd] . " \\n";
-								$lessons[$l_num] = $first->toShortStr() . $parity_dict[$first->is_odd];
+								$lessons[$l_num] = $zero->toShortStr() . $parity_dict[$zero->is_odd] . " \\n";
+								$lessons[$l_num] .= $first->toShortStr() . $parity_dict[$first->is_odd];
 							}
 						}
 					}
