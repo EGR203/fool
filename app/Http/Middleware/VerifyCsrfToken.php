@@ -14,5 +14,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
     	'callback/',
 	    'proxy/reg',
+	    'callback/index.php'
     ];
 }

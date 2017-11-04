@@ -30,14 +30,13 @@ class ProxyController extends Controller {
 		curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1 );
 		curl_setopt( $ch, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0" );
 		curl_setopt( $ch, CURLOPT_POST, true );
-		curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $request->post() ) );
+		curl_setopt( $ch, CURLOPT_POSTFIELDS, http_build_query( $request->all() ) );
 
 		$response = curl_exec( $ch );
 		curl_close( $ch );
-
-		echo $response;
-		file_put_contents( 'connect.log', 'Took from ' . $_SERVER['REMOTE_ADDR']
-		                                  . ' : response: ' . $response .
-		                                  "\n\$_POST: " . print_r( $_POST, true ) . "\n", FILE_APPEND );
+		if (!$response) {
+			return '<h1> ERROR DURING CURL</h1>';
+		}
+		return $response;
 	}
 }
