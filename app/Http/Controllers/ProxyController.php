@@ -22,7 +22,7 @@ class ProxyController extends Controller {
 	}
 
 	public function doProxy( Request $request ) {
-		$proxy = Proxy::oldest()->first();
+		$proxy = Proxy::latest()->first();
 		$url   = 'http://' . $proxy->ip . $proxy->path;
 
 		$ch = curl_init( $url );
