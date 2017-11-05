@@ -16,6 +16,7 @@ class ProxyController extends Controller {
 		$proxy       = Proxy::firstOrNew( [ 'ip' => $ip ] );
 		$proxy->ip   = $ip;
 		$proxy->path = $path;
+		$proxy->touch();
 		$proxy->save();
 
 		return 'ok';
