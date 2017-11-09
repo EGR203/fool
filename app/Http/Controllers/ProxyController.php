@@ -10,7 +10,6 @@ class ProxyController extends Controller {
 	public function register( Request $request, $name) {
 		$ip   = $request->get( 'ip' );
 		$path = $request->post( 'path' );
-		$path = $request->post( 'name' );
 		if ( ! strlen( $ip ) || ! strlen( $path ) ) {
 			return 'no';
 		}
