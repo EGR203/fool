@@ -7,24 +7,30 @@ use Illuminate\Http\Request;
 
 class ProxyController extends Controller {
 	//
-	public function register( Request $request ) {
+	public function register( Request $request, $name) {
 		$ip   = $request->get( 'ip' );
 		$path = $request->post( 'path' );
+		$path = $request->post( 'name' );
 		if ( ! strlen( $ip ) || ! strlen( $path ) ) {
 			return 'no';
 		}
-		$proxy       = Proxy::firstOrNew( [ 'ip' => $ip ] );
+		if ( ! is_null( $name ) ) {
+			$proxy = Proxy::firstOrNew( [ 'name' => $name ] );
+		} else {
+			$proxy = new Proxy();
+		}
 		$proxy->ip   = $ip;
 		$proxy->path = $path;
+		$proxy->name = $name;
 		$proxy->touch();
 		$proxy->save();
 
 		return 'ok';
 	}
 
-	public function doProxy( Request $request ) {
-		$proxy = Proxy::latest('updated_at')->first();
-		$url   = 'http://' . $proxy->ip . $proxy->path;
+	public function doProxy( Request $request, $name ) {
+		$proxy = Proxy::where('name', $name)->latest( 'updated_at' )->first();
+		$url   = 'http://' . $proxy->ip . $proxy->path ;
 
 		$ch = curl_init( $url );
 		curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
@@ -35,9 +41,10 @@ class ProxyController extends Controller {
 
 		$response = curl_exec( $ch );
 		curl_close( $ch );
-		if (!$response) {
+		if ( ! $response ) {
 			return '<h1> ERROR DURING CURL</h1>';
 		}
+
 		return $response;
 	}
 }

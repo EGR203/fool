@@ -20,5 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/callback', 'VkController@index')->name('vkbot');
 
-Route::post('/callback/index.php', 'ProxyController@doProxy');
-Route::post('/proxy/reg', 'ProxyController@register');
+Route::post('/callback/{name}', 'ProxyController@doProxy');
+Route::post('/proxy/reg/{name}', 'ProxyController@register');

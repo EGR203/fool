@@ -17,6 +17,7 @@ class CreateProxiesTable extends Migration
             $table->increments('id');
             $table->ipAddress('ip');
             $table->string('path', 255);
+	        $table->string('name', 255);
             $table->timestamps();
         });
     }
