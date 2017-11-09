@@ -29,6 +29,9 @@ class ProxyController extends Controller {
 
 	public function doProxy( Request $request, $name ) {
 		$proxy = Proxy::where('name', $name)->first();
+		if(!$proxy){
+			return "<h1> I DONT NO THAT NAME {$name}</h1>";
+		}
 		$url   = 'http://' . $proxy->ip . $proxy->path ;
 
 		$ch = curl_init( $url );
