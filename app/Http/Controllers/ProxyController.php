@@ -28,7 +28,7 @@ class ProxyController extends Controller {
 	}
 
 	public function doProxy( Request $request, $name ) {
-		$proxy = Proxy::where('name', $name)->latest( 'updated_at' )->first();
+		$proxy = Proxy::where('name', $name)->first();
 		$url   = 'http://' . $proxy->ip . $proxy->path ;
 
 		$ch = curl_init( $url );
