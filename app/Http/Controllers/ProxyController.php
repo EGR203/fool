@@ -32,7 +32,12 @@ class ProxyController extends Controller {
 		if(!$proxy){
 			return "<h1> I DONT NO THAT NAME {$name}</h1>";
 		}
-		$url   = 'http://' . $proxy->ip . $proxy->path ;
+
+		if (!preg_match('/^http\.*/', $proxy->ip)){
+			$url = 'http://' . $proxy->ip . $proxy->path ;
+		} else {
+			$url = $proxy->ip . $proxy->path;
+		}
 
 		$ch = curl_init( $url );
 		curl_setopt( $ch, CURLOPT_FOLLOWLOCATION, true );
@@ -44,7 +49,7 @@ class ProxyController extends Controller {
 		$response = curl_exec( $ch );
 		curl_close( $ch );
 		if ( ! $response ) {
-			return '<h1> ERROR DURING CURL</h1>';
+			return '<h1> ERROR DURING CURL (Have not response)</h1>';
 		}
 
 		return $response;
