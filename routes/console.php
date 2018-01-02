@@ -14,5 +14,16 @@ use Illuminate\Foundation\Inspiring;
 */
 
 Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
+	$this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('upUserToAdmin {mail}', function ($mail) {
+	$user = \App\User::whereEmail($mail)->first();
+	if ($user) {
+		$user->is_admin = 1;
+		$user->save();
+		$this->comment('ok');
+	} else {
+		$this->comment("user with e-mail {$mail} not found");
+	}
+})->describe('up user to admin');

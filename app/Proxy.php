@@ -16,10 +16,14 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Proxy whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Proxy whereIp($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Proxy whereUpdatedAt($value)
+ * @property string $path
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Proxy wherePath($value)
  */
 class Proxy extends Model {
 
 	protected $fillable = [
-		'ip'
+		'ip',
+		'path',
+		'name',
 	];
 }
