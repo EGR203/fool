@@ -17,7 +17,7 @@ class DateTimeUtils {
 
 	public static function getWeekOfStudy(Carbon $date=null) {
 		$date = $date ?? Carbon::now();
-		$week = $date->diffInWeeks(self::getBeginningOfStudy()) + 1;
+		$week = $date->diffInWeeks(self::getBeginningOfStudy());
 		return $week;
 	}
 
