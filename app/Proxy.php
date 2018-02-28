@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Proxy whereUpdatedAt($value)
  * @property string $path
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Proxy wherePath($value)
+ * @property string $name
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Proxy whereName($value)
  */
 class Proxy extends Model {
 

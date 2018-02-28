@@ -27,22 +27,11 @@ return [
         'icon'  => 'fa fa-dashboard',
         'url'   => route('admin.dashboard'),
     ],
-
-    [
-        'title' => 'Information',
-        'icon'  => 'fa fa-exclamation-circle',
-        'url'   => route('admin.information'),
-    ],
 	[
 		'title' => 'Home',
 		'icon'  => 'fa fa-home',
 		'url'   => '/',
 	],
-//	[
-//		'title' => 'Proxy',
-//		'icon'  => 'fa fa-exchange',
-//		'url'   => route('admin.proxy'),
-//	],
 
     // Examples
     // [
