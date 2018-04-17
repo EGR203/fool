@@ -8,8 +8,8 @@ AdminSection::registerModel(Proxy::class, function (ModelConfiguration $model) {
 	$model->onDisplay(function () {
 		$display = AdminDisplay::table()->setColumns([
 			AdminColumn::link('name')->setLabel('Name')->setWidth('400px'),
-			AdminColumn::text('ip', 'Ip'),
-			AdminColumn::text('path', 'Path'),
+			AdminColumnEditable::text('ip', 'Ip'),
+			AdminColumnEditable::text('path', 'Path'),
 		]);
 		$display->paginate(40);
 
