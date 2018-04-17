@@ -22,4 +22,3 @@ Route::get('/home', function () {
 Route::post('/vk', 'VkController@index')->name('vkbot');
 
 Route::post('/callback/{name}', 'ProxyController@doProxy');
-Route::post('/proxy/reg/{name}', 'ProxyController@register');
