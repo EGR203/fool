@@ -2,9 +2,11 @@
 
 namespace App\Http\Sections;
 
+use App\Proxy;
 use SleepingOwl\Admin\Contracts\Display\DisplayInterface;
 use SleepingOwl\Admin\Contracts\Form\FormInterface;
 use SleepingOwl\Admin\Contracts\Initializable;
+use SleepingOwl\Admin\Display\ControlButton;
 use SleepingOwl\Admin\Section;
 
 /**
@@ -57,6 +59,17 @@ class Proxies extends Section implements Initializable {
 			\AdminColumnEditable::text('ip', 'Ip'),
 			\AdminColumnEditable::text('path', 'Path'),
 		]);
+
+		$ping = new ControlButton(function (Proxy $model) {
+			return $model->getUrl();
+		}, 'ping');
+		$ping->setIcon('fa fa-signal');
+		$ping->setHtmlAttribute('class', 'proxy-ping-btn');
+
+		$control = $display->getColumns()->getControlColumn();
+		$control->addButton($ping);
+		$control->setWidth("200px");
+
 		$display->paginate(40);
 
 		return $display;
