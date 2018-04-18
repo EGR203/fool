@@ -68,19 +68,19 @@
 /***/ 41:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(51);
+module.exports = __webpack_require__(42);
 
 
 /***/ }),
 
-/***/ 51:
+/***/ 42:
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(52);
+__webpack_require__(43);
 
 /***/ }),
 
-/***/ 52:
+/***/ 43:
 /***/ (function(module, exports) {
 
 Admin.Modules.register('admin-custom.proxy-ping-btn', function () {
@@ -126,6 +126,7 @@ Admin.Modules.register('admin-custom.proxy-ping-btn', function () {
             }
         });
     });
+    $('.proxy-ping-btn').click();
 });
 
 /***/ })

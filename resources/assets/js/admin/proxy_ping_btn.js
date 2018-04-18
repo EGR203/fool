@@ -41,4 +41,5 @@ Admin.Modules.register('admin-custom.proxy-ping-btn', () => {
             },
         });
     });
+    $('.proxy-ping-btn').click();
 });
