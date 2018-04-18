@@ -29,6 +29,12 @@ class Proxy extends Model {
 		'name',
 	];
 
+	public function logs() {
+		return $this->hasMany( 'App\ProxiesLog' );
+	}
+	public function getLogs() {
+		return $this->logs()->get();
+	}
 
 	public function makeRequest(array $params = array()): string {
 		$url = $this->getUrl();
@@ -38,26 +44,35 @@ class Proxy extends Model {
 		$post_data = $this->buildDataFiles($boundary, $params);
 
 
-		$ch = curl_init($url);
+		$ch = \curl_init($url);
 
-		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-		curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0");
-		curl_setopt($ch, CURLOPT_POST, true);
-		curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-		curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+		\curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+		\curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		\curl_setopt($ch, CURLOPT_USERAGENT, "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0");
+		\curl_setopt($ch, CURLOPT_POST, true);
+		\curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
+		\curl_setopt($ch, CURLOPT_HTTPHEADER, array(
 			"Content-Type: multipart/form-data; boundary=" . $delimiter
 		));
 
-		$response = curl_exec($ch);
-		curl_close($ch);
+		$response = \curl_exec($ch);
+		\curl_close($ch);
 		if (!$response) {
 			return '<h1> ERROR DURING CURL (Have not response)</h1>';
 		}
-		@\Log::info("Url: $url :::: Request: " . print_r($params, 1) . " :::: Response: $response");
+		$this->log(print_r($params,1), $response);
 
 		return $response;
 
+	}
+
+	protected function log($request, $response) {
+		$pl = new ProxiesLog();
+		$pl->proxy_id = $this->id;
+		$pl->request = $request;
+		$pl->response = $response;
+		$pl->save();
+		@\Log::info("Url: " . $this->getUrl() . " :::: Request: " . $request . " :::: Response: $response");
 	}
 
 	public function getUrl(): string {
