@@ -20,6 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Proxy wherePath($value)
  * @property string              $name
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Proxy whereName($value)
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\ProxiesLog[] $logs
  */
 class Proxy extends Model {
 

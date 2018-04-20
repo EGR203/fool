@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\DB;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Schedule whereLabel($value)
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Schedule whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Schedule whereIsActivate($value)
  */
 class Schedule extends Model {
 	protected $fillable = [

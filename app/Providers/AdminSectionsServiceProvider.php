@@ -14,6 +14,7 @@ class AdminSectionsServiceProvider extends ServiceProvider
         //\App\User::class => 'App\Http\Sections\Users',
 	    \App\Schedule::class => 'App\Http\Sections\Schedules',
 	    \App\Proxy::class => 'App\Http\Sections\Proxies',
+	    \App\ProxiesLog::class => 'App\Http\Sections\ProxiesLogs',
     ];
 
     /**

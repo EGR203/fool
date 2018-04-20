@@ -7,6 +7,7 @@ use SleepingOwl\Admin\Contracts\Display\DisplayInterface;
 use SleepingOwl\Admin\Contracts\Form\FormInterface;
 use SleepingOwl\Admin\Contracts\Initializable;
 use SleepingOwl\Admin\Display\ControlButton;
+use SleepingOwl\Admin\Display\ControlLink;
 use SleepingOwl\Admin\Section;
 
 /**
@@ -58,6 +59,9 @@ class Proxies extends Section implements Initializable {
 			\AdminColumn::link('name')->setLabel('Name')->setWidth('400px'),
 			\AdminColumnEditable::text('ip', 'Ip'),
 			\AdminColumnEditable::text('path', 'Path'),
+			\AdminColumn::custom('Callback URL', function (Proxy $model) {
+				return route('callback.proxy', ['name' => $model->name]);
+			}),
 		]);
 
 		$ping = new ControlButton(function (Proxy $model) {
@@ -66,9 +70,20 @@ class Proxies extends Section implements Initializable {
 		$ping->setIcon('fa fa-signal');
 		$ping->setHtmlAttribute('class', 'proxy-ping-btn');
 
+		$show_log = new ControlLink(function (Proxy $model) {
+			return route('admin.model', [
+				'adminModel' => 'proxies_logs',
+				'proxy_name' => $model->name
+			]);
+		}, 'logs');
+		$show_log->setIcon('fa fa-list');
+
 		$control = $display->getColumns()->getControlColumn();
-		$control->addButton($ping);
-		$control->setWidth("200px");
+		$control->addButtons([
+			$show_log,
+			$ping
+		]);
+		$control->setWidth("300px");
 
 		$display->paginate(40);
 
