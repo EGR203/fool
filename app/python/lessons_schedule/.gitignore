@@ -1,0 +1,7 @@
+*.xls
+*.log
+*.idea
+.idea/
+*.pyc
+*pyo
+schedule_parser
